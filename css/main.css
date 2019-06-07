@@ -2,13 +2,39 @@ body {
     margin: 60px auto;
     width: 70%;
 }
-nav ul, footer ul {
+footer ul {
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
     padding: 0px;
     list-style: none;
     font-weight: bold;
 }
-nav ul li, footer ul li {
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333333;
+}
+
+nav li {
+  float: left;
+}
+
+nav ul li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 16px;
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  background-color: #111111;
+}
+
+
+footer ul li {
     display: inline;
     margin-right: 20px;
 }
