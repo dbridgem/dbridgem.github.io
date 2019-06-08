@@ -48,7 +48,12 @@ p .project{
 <div class="project">
 	<h2>CNN for Sensor Quality Control</h2>
 	<p><img style = "padding: 0 15px; float: right;" img src = "300.png" alt ="Image_Placeholder.png" height = 300 width = 300/>
-	Stuff about CNN project</p>
+	So the company I work for manufactures color-based sensors, and we want to find a better way to determine if a sensor is
+	good or bad. The way these sensors are manufactured is in sheets of 16 sensors, so the idea is that we can snap a picture and
+	have a trained convolutional neural net determine which (if any) of the sensors should be discarded based on visible defects. 
+	To make this, I started with a simple script to ensure the photos were all the in the right orientation, divided the photots
+	into 16 areas (1 area per sensor), let a user select if the sensor passed or failed qc in a window (tkinter) to generate 
+	class labels, then ran a convolutional neural net to predict pass or fail based on image alone. <a href="/CNN"> Click here to read more </a></p>
 </div>
 
 <div class="project">
@@ -64,5 +69,10 @@ p .project{
 <div class="project">
 	<h2>Baseline Tracking Comparison</h2>
 	<p><img style = "padding: 0 15px; float: right;" img src = "300.png" alt ="Image_Placeholder.png" height = 300 width = 300/>
-	Stuff about Baseline Tracking Comparison project</p>
+	So at the company I work for we do breath analysis in wearable devices. An issue with flow in particular is how we measure it, which is with 
+	a differential pressure flow meter. The issue with this type of sensor is that it can have issues with baseline drift, especially 
+	if the sensor experiences movement (like you would expect in a wearable device). Since we have a one-way valve, we know that when
+	the person is inhaling that we are at baseline. The question is: How do we determine when the person is inhaling? We had an algorithm
+	developed for a microcontroller but we wanted to ensure it was working properly, so this algorithm uses Python to generate a reference
+	for accurate assessment of baseline vs. exhalation breathing. <a href="/baseline_tracking>Click here to read more.</a></p>
 </div>
