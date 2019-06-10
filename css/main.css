@@ -38,6 +38,7 @@ footer ul li {
     display: inline;
     margin-right: 20px;
 }
+
 a {
     text-decoration: none;
     color: #999;
@@ -70,4 +71,43 @@ ul.posts {
 
 ul.posts li {
     list-style: none;
+}
+
+	
+div .project{
+  border: 3px solid #4CAF50;
+  padding: 5px;
+  margin: 10px;
+}	
+	
+.project {
+  overflow: auto;
+}
+p .project{
+   margin-style = top-middle;
+   flex: 1;
+   white-space: nowrap;
+   width: 500px; 
+   height: 300px;
+   overflow: hidden;
+   text-overflow: ellipsis; 	
+}
+
+div .finding{
+  border: 3px solid #808080;
+  padding: 5px;
+  margin: 10px;
+}	
+	
+.finding {
+  overflow: auto;
+}
+p .finding{
+   margin-style = top-middle;
+   flex: 1;
+   white-space: nowrap;
+   width: 500px; 
+   height: 300px;
+   overflow: hidden;
+   text-overflow: ellipsis; 	
 }
