@@ -74,15 +74,13 @@ ul.posts li {
 }
 
 	
-div .project{
+.project{
   border: 3px solid #4CAF50;
   padding: 5px;
   margin: 10px;
+  overflow: auto;
 }	
 	
-.project {
-  overflow: auto;
-}
 p .project{
    margin-style = top-middle;
    flex: 1;
@@ -93,15 +91,13 @@ p .project{
    text-overflow: ellipsis; 	
 }
 
-div .finding{
+.finding{
   border: 3px solid #808080;
   padding: 5px;
   margin: 10px;
+  overflow: auto;
 }	
 	
-.finding {
-  overflow: auto;
-}
 p .finding{
    margin-style = top-middle;
    flex: 1;
