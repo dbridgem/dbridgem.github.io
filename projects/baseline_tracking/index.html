@@ -3,22 +3,53 @@ layout: default
 title: Devon Bridgeman
 ---
 <div class="blurb">
-	<h1>Convolutional Neural Net</h1>
-	<p>Here is a brief summary on a Convolutional Neural Net project I made. <a href="https://github.com/dbridgem/Sensor_CNN">Click 
+	<h1>Baseline Tracking</h1>
+	<p>Here is a brief summary on a signal baseline tracking project. <a href="https://github.com/dbridgem/Sensor_CNN">Click 
 		here to see the Github page.</a></p>
 
 </div><!-- /.blurb -->
 
 <div class="finding">
 	<h2>
-		Why did I look at this?
+		What was the issue?
 	</h2>
-	<p><img style = "padding: 0 15px; float: left;" img src = "Sensor Image.png" alt ="Sensor Image" height = 300 width = 300/>
-		The flagship technology at my current company is color-based breath sensing. Basically, you breath in the device, 
-		the sensor reacts with the O2 and CO2 in your breath, and we look at the color change due to the reaction. The way 
-		we manufacture these color-based sensors is by depositing these chemicals on a plastic substrate. Since the chemicals 
-		are colored, this makes visual or imaging-based systems ideal for finding sensors that do not meet our standards. 
-		Currently, this is all done visually by an operator; however we want to have a method that is not dependent on the 
-		operator and can be easily scaled. For this, a camera with a convolutional neural net is a great candidate.
+	<p><img style = "padding: 0 15px; float: left;" img src = "Venturi.jpg" alt ="Venturi" height = 300 width = 300/>
+		So to start, our device is a portable one that involves measuring breath flow rates. The way we do this is with 
+		a differential pressure flow meter, much like the one pictured. The challenge with this is with the actual pressure 
+		sensing. The differential pressure sensor we use has a baseline signal that needs to be accounted for in order to 
+		get an accurate pressure reading, and that baseline is sensitive to any movement. With a handheld or wearable device, 
+		This represents a challenge. The way we can work around this is the have a one-way valve on the inlet of the device, so 
+		that when the person is inhaling, we are at baseline. The challenge here just becomes how to discriminate between inhalation 
+		and exhalation reliably for a very wide variety of cases. The purpose of this project was to create a gold-standard for 
+		pressure processing to assess a microcontroller based method (essentially to evaluate the accuracy of our production algorithm).
+	</p>
+</div>
+
+<div class="finding">
+	<h2>
+		The basic approach
+	</h2>
+	<p><img style = "padding: 0 15px; float: left;" img src = "Densityplot.jpg" alt ="Sensor Image" height = 300 width = 300/>
+		As it turns out, if you have more resources than a small microcontroller this is actually a very easy problem. I started 
+		by dividing the test into 15 second windows. Why 15 seconds? Because a person is extremely unlikely to exhale for a solid 
+		15 seconds under standard conditions (not that it is hard to do, people just tend to breath a bit faster. You tried it, didn't 
+		you?). If we look at a 15 second window, the tightest grouping of data points is going to be around the baseline. The baseline 
+		is a much tighter distribution that the exhalation. The density plot to the left pretty clearly shows how obvious it is, with 
+		the giant spike being the baseline. I found that taking the 20th quantile was consistently close enough to the baseline, so in 
+		each 15 second window I take the 20th quantile of pressure readings as a baseline, which I can then interpolate to get a full 
+		baseline.
+	</p>
+</div>
+
+
+<div class="finding">
+	<h2>
+		Result
+	</h2>
+	<p><img style = "padding: 0 15px; float: left;" img src = "Flowcomp.jpg" alt ="Flowcomp" height = 300 width = 300/>
+		When we compared this method to the production microcontroller codes, we found which of the parameter sets on the 
+		microcontroller best fit agreed with this reference. The plot to the left is a comparison between the two methods. 
+		Although the precision could be improved by various methods, this was enough of a reference to guide the decision 
+		on what paramters to use.
 	</p>
 </div>
