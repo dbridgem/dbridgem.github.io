@@ -30,8 +30,8 @@ title: Devon Bridgeman
 
 	<p><img style = "padding: 0 15px; float: left;" img src = "Plate_Image.JPG" alt ="Plate_Image" height = 300 width = 300/>
 		So the first step is, of course, to get some pictures. In order to do this I was able to build a small photo booth using 
-		high precision laser cutting, heat welding, and structured materials (a laser cut cardboard box hot-glued together) to hold 
-		a plate of sensors and ipod in a reproducible position without outside light. 
+		high precision laser cutting, heat welding, and structured materials (a laser cut cardboard box that was hot-glued 
+		together) to hold a plate of sensors and ipod in a reproducible position without outside light. 
 	</p>
 </div>
 
@@ -45,7 +45,7 @@ title: Devon Bridgeman
 		The second step was slightly tedious, which was to take each plate of 16 sensors and divide it into 16 images. Since the 
 		booth made for pretty consistent images, I could do this with a simple set of boxes. Finally, I could just stack the images 
 		into a n layer stack of rgb images to feed into Keras. Thankfully numpy has a decent compression algorithm built in for .npz 
-		files for easy saving as well.
+		files for easy saving.
 </div>
 
 <div class="finding">
@@ -55,7 +55,7 @@ title: Devon Bridgeman
 	<p><img style = "padding: 0 15px; float: left;" img src = "Tkinter_UI.jpg" alt ="tkinker_UI"  height = 300 width = 300/>
 		This was the fun part. This stack ended up having roughly 750 images in it, and they need to be manually classified in order 
 		to train the neural net: This is usually where you might want an intern. In order to make the process as painless as possible, 
-		I built a simple interface in Tkinter that allows for simple sorting. The images show up inverted in the viewing window in 
+		I built a simple interface in Tkinter that allows for simple sorting. The images show up with inverted colors in the viewing window in 
 		order to make it easier to spot defects, the user can press pass or fail, and the result is stored for training and evaluating 
 		the CNN.
 </div>
@@ -73,10 +73,9 @@ title: Devon Bridgeman
 	<h2>
 		Conclusions
 	</h2>
-	<p>The CNN gave a classification accuracy of about 85%, which is not nearly as high as we want to see for this. The biggest reason 
+	<p>The CNN gave a classification accuracy of about 82%, which is not nearly as high as we want to see for this. The biggest reason 
 		is probably that we only have about 750 images for 2 classes, which is a pretty low number for a CNN. Some other factors 
-		that need improved are some position correction to get the images a touch more consistent and better lighting in the high-tech 
-		photo booth.
+		that need improved are some position correction and better lighting in the high-tech photo booth.
 	</p>
 </div>
 <p>Thanks for reading!</p>
